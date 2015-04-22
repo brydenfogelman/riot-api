@@ -27,9 +27,11 @@ $(document).on('ready', function(){
 		get_sum_id(url, summoner, get_stat);
 	});
 
-	// Get the summoner id based on the summoner name that the user searchs.
-	// param: api url to pass to ajax method, summoner
-	// return: summoner id
+	/**
+	* Gets the summoner id and then passes the id to the callback function.
+	* @param api url to pass to ajax method, summoner
+	* @callback get_stat
+	*/
 	function get_sum_id(url, summoner, callback){
 		$.ajax({
 			method: 'get',
@@ -46,6 +48,11 @@ $(document).on('ready', function(){
 		});
 	};
 
+	/**
+	* Gets the stats of a summoner based on the summoner id.
+	* @param summoner id
+	* @callback 
+	*/
 	function get_stat(sum_id){
 		var url = base_url + '/v1.3/stats/by-summoner/' + sum_id + '/summary/' + API_KEY;
 		console.log(url)
